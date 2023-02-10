@@ -13,6 +13,8 @@ var bank = ""
 
 // Function to generate the password 
 function generatePassword() {
+  outcome = ""
+  bank = ""
   // Confirming password length is within bounds 8-128 and rejecting input if not.
   var passwordLength = prompt("Please define the length of your password.");
   if (passwordLength < 8 || passwordLength > 128) {
@@ -29,21 +31,21 @@ function generatePassword() {
       alert("Please select one type to confirm.")
       generatePassword()
     }
-    if (lowercasePassword === true) {
-      outcome += lowercase
+    if (lowercasePassword) {
+      bank += lowercase
     }
-    if (uppercasePassword === true) {
-      outcome += uppercase
+    if (uppercasePassword) {
+      bank += uppercase
     }
-    if (numericPassword === true) {
-      outcome += numeric
+    if (numericPassword) {
+      bank += numeric
     }
-    if (specialPassword === true) {
-      outcome += specialCharacters
+    if (specialPassword) {
+      bank += specialCharacters
     }
     // This should generate a password, but it's not operating properly. 
-    for(var i = 0, n = outcome.length; i < passwordLength.length; i++) {
-     outcome += outcome.charAt[Math.floor(Math.random() * n)];
+    for (var i = 0, n = bank.length; i < passwordLength; i++) {
+     outcome += bank.charAt(Math.floor(Math.random() * n));
     }
   } 
   // Displays password in console and in the text box
@@ -54,7 +56,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
+
 
   passwordText.value = password;
 }
